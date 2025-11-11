@@ -1,0 +1,79 @@
+public class Operadores {
+
+    /**
+     * Retorna a soma de dois números.
+     * @param a O primeiro número.
+     * @param b O segundo número.
+     * @return A soma de a e b.
+     */
+    public static double somar(double a, double b) {
+        return a + b;
+    }
+
+    /**
+     * Retorna a subtração de dois números (a - b).
+     * @param a O minuendo.
+     * @param b O subtraendo.
+     * @return A diferença entre a e b.
+     */
+    public static double subtrair(double a, double b) {
+        return a - b;
+    }
+
+    /**
+     * Retorna a multiplicação de dois números.
+     * @param a O primeiro fator.
+     * @param b O segundo fator.
+     * @return O produto de a e b.
+     */
+    public static double multiplicar(double a, double b) {
+        return a * b;
+    }
+
+    /**
+     * Retorna a divisão de dois números (a / b).
+     * Lança uma exceção se o divisor for zero.
+     * @param a O dividendo.
+     * @param b O divisor.
+     * @return O quociente de a por b.
+     * @throws IllegalArgumentException se b for zero.
+     */
+    public static double dividir(double a, double b) {
+        if (b == 0) {
+            // É uma boa prática em Java lançar uma exceção
+            // para condições de erro, como a divisão por zero.
+            throw new IllegalArgumentException("Erro: Divisão por zero não é permitida.");
+        }
+        return a / b;
+    }
+
+    public static void main(String[] args) {
+        // Exemplo de uso
+        System.out.println("Calculadora em Java");
+
+        // adição da calculadora
+        double soma = Operadores.somar(15.5, 4.5);
+        System.out.println("15.5 + 4.5 = " + soma);
+
+        // subtração
+        double subtracao = Operadores.subtrair(20, 8.5);
+        System.out.println("20 - 8.5 = " + subtracao);
+
+        //multiplicação da calculadora
+        double multiplicacao = Operadores.multiplicar(5, 6);
+        System.out.println("5 * 6 = " + multiplicacao);
+
+        //divisão da calculadora
+        try {
+            double resultadoDivisao = Operadores.dividir(10, 2.5);
+            System.out.println("10 / 2.5 = " + resultadoDivisao);
+
+            // Tentativa de Divisão por Zero
+            double divisãozero = Operadores.dividir(10, 0); // uma exceção se o usuário tentar dividir por zero
+            System.out.println("10 / 0 = " + divisãozero);
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Erro de aplicação" + e.getMessage());
+        }
+    }
+}
